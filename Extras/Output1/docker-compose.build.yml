@@ -1,0 +1,18 @@
+version: '3.8'
+
+x-Core: &coreBuilder
+  context: ./Builders
+  dockerfile: CoreBuilder.Dockerfile
+
+x-AlpineCoreArgs: &AlpineCoreArgs
+  BUILD_IMAGE: 'alpine:latest'
+
+services:
+  helloWorld1:
+    build:
+      <<: *coreBuilder
+      args:
+        <<: *AlpineCoreArgs
+        SETUP_CMD: |
+          echo "Test1" > ./file.txt
+    image: kristianfoss/pepsi:5

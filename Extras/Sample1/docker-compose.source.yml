@@ -1,0 +1,17 @@
+version: '3.8'
+
+x-Core: &coreBuilder
+  context: ./Builders
+  dockerfile: CommandBuilder.Dockerfile
+
+x-AlpineCoreArgs: &AlpineCoreArgs
+  BUILD_IMAGE: 'alpine:latest'
+
+services:
+  HelloWorld1:
+    build:
+      <<: *coreBuilder
+      args:
+        <<: *AlpineCoreArgs
+        FIRST_CMD: 'echo "HelloWorld1" > /test.ts'
+    image: kristianfoss/lab/helloworld1:test1
