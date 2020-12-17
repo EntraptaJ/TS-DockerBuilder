@@ -1,6 +1,5 @@
 // src/Modules/BuildFiles/BuildFile.test.ts
 import { TestSuite } from '@k-foss/ts-estests';
-import { strictEqual } from 'assert';
 import { BuildFile } from './BuildFile';
 import { BuilderImage } from '../BuilderImages/BuilderImage';
 import { Builder } from '../Builders/Builder';
